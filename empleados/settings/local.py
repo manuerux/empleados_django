@@ -1,6 +1,7 @@
 """
 configuracion local
 """
+import os
 from .base import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -16,9 +17,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'dbempleado',
-        'USER': 'manuerux',
-        'PASSWORD': 'game2wii',
-        'HOST': 'localhost',
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+        'HOST': os.getenv('DATABASE_HOST'),
         'PORT': '5432',
     }
 }
